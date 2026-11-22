@@ -19,7 +19,7 @@ def parse_amount(text):
         amount = float(cleaned)
     except ValueError:
         raise InvalidAmountError(f'not a number: {text}')
-    if amount <= 0:
+    if amount < 0:
         raise InvalidAmountError(f'amount must be positive, got {text}')
     return amount
 
