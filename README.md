@@ -2,17 +2,16 @@
 
 A small command-line expense tracker for a trip: it records expenses in several currencies, stores them in a JSON file, converts them with a real exchange-rate API and prints a report. It is the course project of [Zero to Hero](https://book.onpy.dev/), built in the Level Up part and tested in the Testing part.
 
-## This branch: session 2, Errors and Decorators
+## This branch: session 3, Objects for Testing
 
-errors.py (the WalletError family, parse_amount, check_currency) and decorators.py (log_call, timed), checked by check_wallet.py.
+money.py switches to the Expense dataclass; storage.py adds the Storage family with MemoryStorage, checked by check_storage.py. check_wallet.py is gone: it used add_all, which the new money.py no longer has.
 
-Chapter: [Errors and Decorators](https://book.onpy.dev/chapter/zero09-errors-decorators/)
+Chapter: [Objects for Testing](https://book.onpy.dev/chapter/zero10-objects-for-testing/)
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
-python money.py
-python check_wallet.py
+python check_storage.py
 ```
 
 ## All sessions
