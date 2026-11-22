@@ -1,4 +1,9 @@
+from unittest.mock import Mock
+
 import pytest
+import requests
+
+import rates
 
 from money import make_expense
 from rates import FixedRates
@@ -47,3 +52,32 @@ def cli_env(tmp_path, monkeypatch):
     monkeypatch.setenv('WALLET_FILE', str(path))
     monkeypatch.setenv('WALLET_OFFLINE', '1')
     return path
+
+
+class FakeResponse:
+    """Just enough of a requests response for FrankfurterRates."""
+
+    def __init__(self, status_code, data):
+        self.status_code = status_code
+        self.data = data
+
+    def json(self):
+        return self.data
+
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            raise requests.HTTPError(f'{self.status_code} error')
+
+
+@pytest.fixture
+def fake_api(monkeypatch):
+    """requests.get replaced by a Mock: every currency costs 1.1 per EUR, UAH is 404."""
+    def answer(url, params, timeout):
+        code = params['symbols']
+        if code == 'UAH':
+            return FakeResponse(404, {'message': 'not found'})
+        return FakeResponse(200, {'base': 'EUR', 'rates': {code: 1.1}})
+
+    get = Mock(side_effect=answer)
+    monkeypatch.setattr(rates.requests, 'get', get)
+    return get

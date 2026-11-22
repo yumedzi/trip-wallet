@@ -2,17 +2,18 @@
 
 A small command-line expense tracker for a trip: it records expenses in several currencies, stores them in a JSON file, converts them with a real exchange-rate API and prints a report. It is the course project of [Zero to Hero](https://book.onpy.dev/), built in the Level Up part and tested in the Testing part.
 
-## This branch: session 6, Fixtures
+## This branch: session 7, Mocking
 
-tests/conftest.py with shared fixtures, tests for Wallet and the command line: 45 tests.
+A fake web API in conftest.py, tests for FrankfurterRates and end-to-end tests: 56 tests that need no internet.
 
-Chapter: [Fixtures](https://book.onpy.dev/chapter/zero13-fixtures/)
+Chapter: [Mocking](https://book.onpy.dev/chapter/zero14-mocking/)
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 python -m pytest -v
+python -m pytest -q -m "not slow"
 ```
 
 ## All sessions
