@@ -2,16 +2,19 @@
 
 A small command-line expense tracker for a trip: it records expenses in several currencies, stores them in a JSON file, converts them with a real exchange-rate API and prints a report. It is the course project of [Zero to Hero](https://book.onpy.dev/), built in the Level Up part and tested in the Testing part.
 
-## This branch: session 3, Objects for Testing
+## This branch: session 4, Working with Real Data
 
-money.py switches to the Expense dataclass; storage.py adds the Storage family with MemoryStorage, checked by check_storage.py. check_wallet.py is gone: it used add_all, which the new money.py no longer has.
+JsonStorage, rates.py (FixedRates, FrankfurterRates over a real web API) and wallet.py, the command-line program. From here on the program itself does not change.
 
-Chapter: [Objects for Testing](https://book.onpy.dev/chapter/zero10-objects-for-testing/)
+Chapter: [Working with Real Data](https://book.onpy.dev/chapter/zero11-real-data/)
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
-python check_storage.py
+pip install -r requirements.txt
+python wallet.py add 12.50 EUR food Pizza
+python wallet.py report
+WALLET_OFFLINE=1 python wallet.py report
 ```
 
 ## All sessions
