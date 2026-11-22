@@ -20,7 +20,7 @@ Each branch holds the project as it stands at the end of one chapter; `main` is 
 
 - [Functions Level Up](https://book.onpy.dev/chapter/zero08-functions-level-up/) → `session-1-functions-level-up`
 - [Errors and Decorators](https://book.onpy.dev/chapter/zero09-errors-decorators/) → `session-2-errors-and-decorators`
-- [Objects for Testing](https://book.onpy.dev/chapter/zero10-objects-for-testing/) → `session-3-objects-for-testing`
+- [Objects for Testing](https://book.onpy.dev/chapter/zero10-objects-testing/) → `session-3-objects-for-testing`
 - [Working with Real Data](https://book.onpy.dev/chapter/zero11-real-data/) → `session-4-real-data`
 - [Pytest Basics](https://book.onpy.dev/chapter/zero12-pytest-basics/) → `session-5-pytest-basics`
 - [Fixtures](https://book.onpy.dev/chapter/zero13-fixtures/) → `session-6-fixtures`
