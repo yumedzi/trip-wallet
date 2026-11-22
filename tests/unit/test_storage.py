@@ -59,3 +59,8 @@ def test_broken_json_file_raises(json_storage):
     json_storage.path.write_text('not json')
     with pytest.raises(json.JSONDecodeError):
         json_storage.load()
+
+
+def test_base_storage_cannot_save():
+    with pytest.raises(NotImplementedError):
+        Storage().save([])

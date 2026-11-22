@@ -1,0 +1,5 @@
+tests:
+  image: python:3.12
+  script:
+    - pip install -r requirements.txt
+    - python -m pytest -m "not network" --cov=. --cov-report=term-missing

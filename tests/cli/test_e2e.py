@@ -1,4 +1,4 @@
-# tests/test_e2e.py
+# tests/cli/test_e2e.py
 import json
 import os
 import subprocess

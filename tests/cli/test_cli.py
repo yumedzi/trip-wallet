@@ -34,3 +34,8 @@ def test_bad_amount_is_exit_code_1(cli_env, capsys):
 def test_unknown_command_is_exit_code_2(cli_env, capsys):
     assert main(['delete']) == 2
     assert 'usage' in capsys.readouterr().err
+
+
+def test_add_needs_four_words(cli_env, capsys):
+    assert main(['add', '12.50', 'EUR']) == 1
+    assert capsys.readouterr().err == 'error: usage: add AMOUNT CURRENCY CATEGORY NOTE\n'
